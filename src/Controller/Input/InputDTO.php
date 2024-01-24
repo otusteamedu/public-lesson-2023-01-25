@@ -7,20 +7,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class InputDTO
 {
-    #[Assert\NotBlank]
-    public string $notEmptyString;
-
-    #[Assert\NotNull]
-    public ?string $notNullString;
-
-    #[Assert\Type('integer')]
-    public $int;
+    #[Assert\Choice(choices: ['correct', 'valid'])]
+    public string $choice;
 
     public static function fillFromRequest(Request $request): self {
         $result = new self();
-        $result->notEmptyString = $request->request->get('notEmptyString');
-        $result->notNullString = $request->request->get('notNullString');
-        $result->int = $request->request->get('int');
+        $result->choice = $request->request->get('choice');
 
         return $result;
     }
