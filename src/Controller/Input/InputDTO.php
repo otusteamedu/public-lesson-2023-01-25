@@ -2,6 +2,7 @@
 
 namespace App\Controller\Input;
 
+use App\Constraint\RangeConstraint;
 use App\Enums\NameEnum;
 use App\Enums\TypeEnum;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,8 +20,7 @@ class InputDTO
     #[Assert\When(
         expression: "this.type === 'relative'",
         constraints: [
-            new Assert\GreaterThanOrEqual(0),
-            new Assert\LessThanOrEqual(100),
+            new RangeConstraint(['payload' => ['min' => 0, 'max' => 100]]),
         ]
     )]
     #[Assert\When(
