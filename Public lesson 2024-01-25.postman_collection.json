@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "ed78351d-5e86-4a58-9672-5af65969d548",
+		"name": "Public lesson 2024-01-25",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30057528"
+	},
+	"item": [
+		{
+			"name": "Validator simple test",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "notEmptyString",
+							"value": "some string",
+							"type": "text"
+						},
+						{
+							"key": "notNullString",
+							"value": "other string",
+							"type": "text"
+						},
+						{
+							"key": "int",
+							"value": "123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/validator-test",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"validator-test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validator choice test",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "choice",
+							"value": "bad",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/validator-test",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"validator-test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validator array test",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "choices[]",
+							"value": "correct",
+							"type": "text"
+						},
+						{
+							"key": "choices[]",
+							"value": "valid",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/validator-test",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"validator-test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validator conditional test",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "type",
+							"value": "absolute",
+							"type": "text"
+						},
+						{
+							"key": "value",
+							"value": "325",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/validator-test",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"validator-test"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:7777",
+			"type": "string"
+		}
+	]
+}
