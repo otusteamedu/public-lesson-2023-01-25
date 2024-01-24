@@ -7,12 +7,13 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class InputDTO
 {
-    #[Assert\Choice(choices: ['correct', 'valid'])]
-    public string $choice;
+    #[Assert\Choice(choices: ['correct', 'valid'], multiple: true)]
+    #[Assert\Type('array')]
+    public array $choices;
 
     public static function fillFromRequest(Request $request): self {
         $result = new self();
-        $result->choice = $request->request->get('choice');
+        $result->choices = $request->request->all('choices');
 
         return $result;
     }
