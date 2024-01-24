@@ -2,6 +2,7 @@
 
 namespace App\Controller\Input;
 
+use App\Constraint\CustomRangeConstraint;
 use App\Constraint\RangeConstraint;
 use App\Enums\NameEnum;
 use App\Enums\TypeEnum;
@@ -20,7 +21,7 @@ class InputDTO
     #[Assert\When(
         expression: "this.type === 'relative'",
         constraints: [
-            new RangeConstraint(['payload' => ['min' => 0, 'max' => 100]]),
+            new CustomRangeConstraint(min: 0, max: 100),
         ]
     )]
     #[Assert\When(
